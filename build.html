@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Design your own Guitar Tech acoustic guitar: choose the body, finish and hardware.">
+    <title>Build | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and a shorter background picture than the home page -->
+    <div class="hero page-hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html">Gallery</a>
+                <a href="index.html#craft">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="account.html" id="account-link">My Account</a>
+                <a href="build.html" class="commission-link" aria-current="page" onclick="closeCurtainMenu()">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <p class="eyebrow">Commission</p>
+            <h1>Build your guitar</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <p class="hero-intro">Pick a body, a finish and the hardware. The drawing changes as you go.</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="build-page" tabindex="-1">
+
+        <!-- Left side: the drawing and a summary of the choices -->
+        <aside class="build-preview" aria-label="Your guitar">
+            <div class="preview-frame">
+                <!--
+                    The guitar is drawn with SVG shapes.
+                    JavaScript shows the parts for the chosen body (data-body)
+                    and sets two colours: --finish for the body and --hardware for the metal parts.
+                -->
+                <svg id="guitar-preview" viewBox="0 0 320 690" role="img" aria-labelledby="preview-title">
+                    <title id="preview-title">SD-100 guitar, Natural finish, Nickel hardware</title>
+                    <defs>
+                        <path id="shape-CL-30" d="M160 320 C198.5 320 230 337.4 230 389.6 C230 422.9 214 422.9 214 456.3 C214 491.5 254 491.5 254 534.6 C254 581.3 214.5 610 160 610 C105.5 610 66 581.3 66 534.6 C66 491.5 106 491.5 106 456.3 C106 422.9 90 422.9 90 389.6 C90 337.4 121.5 320 160 320 Z"/>
+                        <path id="shape-SD-100" d="M160 320 C212.1 320 244 339.3 244 397.3 C244 434.3 232 434.3 232 471.3 C232 510.5 270 510.5 270 558.3 C270 610.2 223.8 642 160 642 C96.2 642 50 610.2 50 558.3 C50 510.5 88 510.5 88 471.3 C88 434.3 76 434.3 76 397.3 C76 339.3 107.9 320 160 320 Z"/>
+                        <path id="shape-DD-12" d="M160 320 C246.0 320 260 340.6 260 402.6 C260 442.1 246 442.1 246 481.7 C246 523.5 282 523.5 282 574.6 C282 630.0 230.8 664 160 664 C89.2 664 38 630.0 38 574.6 C38 523.5 74 523.5 74 481.7 C74 442.1 60 442.1 60 402.6 C60 340.6 74.0 320 160 320 Z"/>
+                        <!-- finish colours that fade from the middle to the edge -->
+                        <radialGradient id="sunburst" cx="0.5" cy="0.62" r="0.62">
+                            <stop offset="0" stop-color="#f0bd5e"/>
+                            <stop offset="0.5" stop-color="#d0832f"/>
+                            <stop offset="0.78" stop-color="#6e3514"/>
+                            <stop offset="1" stop-color="#230f06"/>
+                        </radialGradient>
+                        <radialGradient id="tobacco" cx="0.5" cy="0.62" r="0.62">
+                            <stop offset="0" stop-color="#b98142"/>
+                            <stop offset="0.5" stop-color="#7e4721"/>
+                            <stop offset="0.82" stop-color="#3a1c0b"/>
+                            <stop offset="1" stop-color="#160904"/>
+                        </radialGradient>
+                        <radialGradient id="cherry" cx="0.5" cy="0.62" r="0.62">
+                            <stop offset="0" stop-color="#c8483a"/>
+                            <stop offset="0.6" stop-color="#93261c"/>
+                            <stop offset="1" stop-color="#3e0a06"/>
+                        </radialGradient>
+                        <!-- thin lines that look like wood grain -->
+                        <pattern id="grain" width="7" height="40" patternUnits="userSpaceOnUse">
+                            <rect x="0" width="1" height="40" fill="#000" opacity="0.07"/>
+                            <rect x="4" width="0.6" height="40" fill="#fff" opacity="0.05"/>
+                        </pattern>
+                    </defs>
+
+                    <!-- body: only the shape that matches the chosen body type is shown -->
+                    <g data-body="CL-30" hidden>
+                        <use href="#shape-CL-30" class="body-outline"/>
+                        <use href="#shape-CL-30" class="body-finish"/>
+                        <use href="#shape-CL-30" class="body-grain"/>
+                        <use href="#shape-CL-30" class="body-binding"/>
+                        <rect class="bridge" x="121.0" y="505.29999999999995" width="78" height="20" rx="7"/>
+                        <rect class="saddle" x="126" y="507.29999999999995" width="68" height="3" rx="1.5"/>
+                        <circle class="hardware" cx="133.8" cy="518.3" r="3"/>
+                        <circle class="hardware" cx="144.2" cy="518.3" r="3"/>
+                        <circle class="hardware" cx="154.8" cy="518.3" r="3"/>
+                        <circle class="hardware" cx="165.2" cy="518.3" r="3"/>
+                        <circle class="hardware" cx="175.8" cy="518.3" r="3"/>
+                        <circle class="hardware" cx="186.2" cy="518.3" r="3"/>
+                        <circle class="hardware" cx="160" cy="607" r="4.5"/>
+                    </g>
+                    <g data-body="SD-100">
+                        <use href="#shape-SD-100" class="body-outline"/>
+                        <use href="#shape-SD-100" class="body-finish"/>
+                        <use href="#shape-SD-100" class="body-grain"/>
+                        <use href="#shape-SD-100" class="body-binding"/>
+                        <path class="pickguard" d="M202 410 A42 42 0 0 1 148 450 C156 476 190 494 214 472 C232 454 226 416 202 410 Z"/>
+                        <rect class="bridge" x="116.0" y="526.7" width="88" height="20" rx="7"/>
+                        <rect class="saddle" x="126" y="528.7" width="68" height="3" rx="1.5"/>
+                        <circle class="hardware" cx="133.8" cy="539.7" r="3"/>
+                        <circle class="hardware" cx="144.2" cy="539.7" r="3"/>
+                        <circle class="hardware" cx="154.8" cy="539.7" r="3"/>
+                        <circle class="hardware" cx="165.2" cy="539.7" r="3"/>
+                        <circle class="hardware" cx="175.8" cy="539.7" r="3"/>
+                        <circle class="hardware" cx="186.2" cy="539.7" r="3"/>
+                        <circle class="hardware" cx="160" cy="639" r="4.5"/>
+                    </g>
+                    <g data-body="DD-12" hidden>
+                        <use href="#shape-DD-12" class="body-outline"/>
+                        <use href="#shape-DD-12" class="body-finish"/>
+                        <use href="#shape-DD-12" class="body-grain"/>
+                        <use href="#shape-DD-12" class="body-binding"/>
+                        <path class="pickguard" d="M202 410 A42 42 0 0 1 148 450 C156 476 190 494 214 472 C232 454 226 416 202 410 Z"/>
+                        <rect class="bridge" x="112.0" y="541.5" width="96" height="20" rx="7"/>
+                        <rect class="saddle" x="126" y="543.5" width="68" height="3" rx="1.5"/>
+                        <circle class="hardware" cx="133.8" cy="554.5" r="3"/>
+                        <circle class="hardware" cx="144.2" cy="554.5" r="3"/>
+                        <circle class="hardware" cx="154.8" cy="554.5" r="3"/>
+                        <circle class="hardware" cx="165.2" cy="554.5" r="3"/>
+                        <circle class="hardware" cx="175.8" cy="554.5" r="3"/>
+                        <circle class="hardware" cx="186.2" cy="554.5" r="3"/>
+                        <circle class="hardware" cx="160" cy="661" r="4.5"/>
+                    </g>
+
+                    <!-- soundhole and rosette (the same on every body) -->
+                    <circle class="rosette-dark" cx="160" cy="410" r="37"/>
+                    <circle class="rosette-line" cx="160" cy="410" r="42"/>
+                    <circle class="rosette-line" cx="160" cy="410" r="32"/>
+                    <circle class="soundhole" cx="160" cy="410" r="29"/>
+
+                    <!-- neck and fretboard -->
+                    <path class="fretboard" d="M142 104 L178 104 L183 366 L137 366 Z"/>
+                    <line class="fret" x1="141.5" y1="130.4" x2="178.5" y2="130.4"/>
+                    <line class="fret" x1="141.0" y1="155.3" x2="179.0" y2="155.3"/>
+                    <line class="fret" x1="140.6" y1="178.8" x2="179.4" y2="178.8"/>
+                    <line class="fret" x1="140.1" y1="201.0" x2="179.9" y2="201.0"/>
+                    <line class="fret" x1="139.8" y1="221.9" x2="180.2" y2="221.9"/>
+                    <line class="fret" x1="139.4" y1="241.7" x2="180.6" y2="241.7"/>
+                    <line class="fret" x1="139.0" y1="260.3" x2="181.0" y2="260.3"/>
+                    <line class="fret" x1="138.7" y1="277.9" x2="181.3" y2="277.9"/>
+                    <line class="fret" x1="138.4" y1="294.5" x2="181.6" y2="294.5"/>
+                    <line class="fret" x1="138.1" y1="310.2" x2="181.9" y2="310.2"/>
+                    <line class="fret" x1="137.8" y1="325.0" x2="182.2" y2="325.0"/>
+                    <line class="fret" x1="137.5" y1="339.0" x2="182.5" y2="339.0"/>
+                    <line class="fret" x1="137.3" y1="352.2" x2="182.7" y2="352.2"/>
+                    <line class="fret" x1="137.0" y1="364.6" x2="183.0" y2="364.6"/>
+                    <circle class="marker" cx="160" cy="167.1" r="2.6"/>
+                    <circle class="marker" cx="160" cy="211.4" r="2.6"/>
+                    <circle class="marker" cx="160" cy="251.0" r="2.6"/>
+                    <circle class="marker" cx="160" cy="286.2" r="2.6"/>
+                    <circle class="marker" cx="152" cy="332.0" r="2.6"/>
+                    <circle class="marker" cx="168" cy="332.0" r="2.6"/>
+
+                    <!-- headstock, nut and tuners (tuners use the hardware colour) -->
+                    <path class="headstock" d="M142 106 L132 30 Q131 20 141 19 L179 19 Q189 20 188 30 L178 106 Z"/>
+                    <rect class="nut" x="141" y="101" width="38" height="5" rx="1"/>
+                    <rect class="hardware" x="110" y="44" width="36" height="4"/>
+                    <ellipse class="hardware" cx="110" cy="46" rx="9" ry="6.5"/>
+                    <circle class="hardware" cx="146" cy="46" r="3.6"/>
+                    <rect class="hardware" x="110" y="64" width="36" height="4"/>
+                    <ellipse class="hardware" cx="110" cy="66" rx="9" ry="6.5"/>
+                    <circle class="hardware" cx="146" cy="66" r="3.6"/>
+                    <rect class="hardware" x="110" y="84" width="36" height="4"/>
+                    <ellipse class="hardware" cx="110" cy="86" rx="9" ry="6.5"/>
+                    <circle class="hardware" cx="146" cy="86" r="3.6"/>
+                    <rect class="hardware" x="174" y="84" width="36" height="4"/>
+                    <ellipse class="hardware" cx="210" cy="86" rx="9" ry="6.5"/>
+                    <circle class="hardware" cx="174" cy="86" r="3.6"/>
+                    <rect class="hardware" x="174" y="64" width="36" height="4"/>
+                    <ellipse class="hardware" cx="210" cy="66" rx="9" ry="6.5"/>
+                    <circle class="hardware" cx="174" cy="66" r="3.6"/>
+                    <rect class="hardware" x="174" y="44" width="36" height="4"/>
+                    <ellipse class="hardware" cx="210" cy="46" rx="9" ry="6.5"/>
+                    <circle class="hardware" cx="174" cy="46" r="3.6"/>
+
+                    <!-- strings, from the tuners to the bridge of the chosen body -->
+                    <g class="strings" data-body="CL-30" hidden>
+                        <polyline points="146,46 146.5,104 133.8,518.3" stroke-width="1.5"/>
+                        <polyline points="146,66 151.9,104 144.2,518.3" stroke-width="1.3"/>
+                        <polyline points="146,86 157.3,104 154.8,518.3" stroke-width="1.2"/>
+                        <polyline points="174,86 162.7,104 165.2,518.3" stroke-width="1.0"/>
+                        <polyline points="174,66 168.1,104 175.8,518.3" stroke-width="0.8"/>
+                        <polyline points="174,46 173.5,104 186.2,518.3" stroke-width="0.6"/>
+                    </g>
+                    <g class="strings" data-body="SD-100">
+                        <polyline points="146,46 146.5,104 133.8,539.7" stroke-width="1.5"/>
+                        <polyline points="146,66 151.9,104 144.2,539.7" stroke-width="1.3"/>
+                        <polyline points="146,86 157.3,104 154.8,539.7" stroke-width="1.2"/>
+                        <polyline points="174,86 162.7,104 165.2,539.7" stroke-width="1.0"/>
+                        <polyline points="174,66 168.1,104 175.8,539.7" stroke-width="0.8"/>
+                        <polyline points="174,46 173.5,104 186.2,539.7" stroke-width="0.6"/>
+                    </g>
+                    <g class="strings" data-body="DD-12" hidden>
+                        <polyline points="146,46 146.5,104 133.8,554.5" stroke-width="1.5"/>
+                        <polyline points="146,66 151.9,104 144.2,554.5" stroke-width="1.3"/>
+                        <polyline points="146,86 157.3,104 154.8,554.5" stroke-width="1.2"/>
+                        <polyline points="174,86 162.7,104 165.2,554.5" stroke-width="1.0"/>
+                        <polyline points="174,66 168.1,104 175.8,554.5" stroke-width="0.8"/>
+                        <polyline points="174,46 173.5,104 186.2,554.5" stroke-width="0.6"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="preview-summary">
+                <h2 id="build-name">SD-100</h2>
+                <dl class="build-list">
+                    <div>
+                        <dt>Body</dt>
+                        <dd id="summary-body">OM body</dd>
+                    </div>
+                    <div>
+                        <dt>Finish</dt>
+                        <dd id="summary-finish">Natural</dd>
+                    </div>
+                    <div>
+                        <dt>Hardware</dt>
+                        <dd id="summary-hardware">Nickel</dd>
+                    </div>
+                    <div class="build-total">
+                        <dt>Estimate</dt>
+                        <dd class="build-price">$3,200</dd>
+                    </div>
+                </dl>
+
+                <button type="button" class="button outline-dark-button save-button" onclick="saveBuild()">Save to my account</button>
+                <p id="save-message" class="small-text" aria-live="polite"></p>
+            </div>
+        </aside>
+
+        <!--
+            Right side: the choices. They are radio buttons, so only one in each group can be picked.
+            Every change runs updateBuild(). Each option keeps its price in data-price.
+        -->
+        <form id="build-form" class="build-options" onchange="updateBuild()" onsubmit="prepareEnquiry(event)">
+
+            <fieldset class="build-step">
+                <legend><span class="step-number">1</span> Body type</legend>
+                <div class="body-options">
+                    <label class="option">
+                        <input type="radio" name="body" value="CL-30" data-name="Small body" data-price="2400">
+                        <span class="option-box">
+                            <span class="option-title">CL-30 <span class="option-price">from $2,400</span></span>
+                            <span class="option-sub">Small body</span>
+                            <span class="option-text">A small, comfortable guitar for lighter playing and quiet sessions.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="body" value="SD-100" data-name="OM body" data-price="3200" checked>
+                        <span class="option-box">
+                            <span class="option-title">SD-100 <span class="option-price">from $3,200</span></span>
+                            <span class="option-sub">OM body</span>
+                            <span class="option-text">A balanced body size, suited to fingerstyle and chords.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="body" value="DD-12" data-name="Dreadnought" data-price="3600">
+                        <span class="option-box">
+                            <span class="option-title">DD-12 <span class="option-price">from $3,600</span></span>
+                            <span class="option-sub">Dreadnought</span>
+                            <span class="option-text">A larger guitar for full chords and strong strumming.</span>
+                        </span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- data-fill is the colour used in the drawing. url(#...) means one of the gradients in the SVG. -->
+            <fieldset class="build-step">
+                <legend><span class="step-number">2</span> Finish colour</legend>
+                <div class="swatch-options">
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Natural" data-fill="#e3c18c" data-price="0" checked>
+                        <span class="swatch-box">
+                            <span class="swatch natural" aria-hidden="true"></span>
+                            <span class="swatch-name">Natural</span>
+                            <span class="option-price">Included</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Sunburst" data-fill="url(#sunburst)" data-price="250">
+                        <span class="swatch-box">
+                            <span class="swatch sunburst" aria-hidden="true"></span>
+                            <span class="swatch-name">Sunburst</span>
+                            <span class="option-price">+ $250</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Tobacco burst" data-fill="url(#tobacco)" data-price="250">
+                        <span class="swatch-box">
+                            <span class="swatch tobacco" aria-hidden="true"></span>
+                            <span class="swatch-name">Tobacco burst</span>
+                            <span class="option-price">+ $250</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Cherry" data-fill="url(#cherry)" data-price="300">
+                        <span class="swatch-box">
+                            <span class="swatch cherry" aria-hidden="true"></span>
+                            <span class="swatch-name">Cherry</span>
+                            <span class="option-price">+ $300</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Black" data-fill="#1f1c19" data-price="300">
+                        <span class="swatch-box">
+                            <span class="swatch black" aria-hidden="true"></span>
+                            <span class="swatch-name">Black</span>
+                            <span class="option-price">+ $300</span>
+                        </span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- data-colour is the colour of the tuners, bridge pins and strap button in the drawing. -->
+            <fieldset class="build-step">
+                <legend><span class="step-number">3</span> Hardware</legend>
+                <div class="hardware-options">
+                    <label class="option">
+                        <input type="radio" name="hardware" value="Nickel" data-colour="#c9ced3" data-price="0" checked>
+                        <span class="option-box">
+                            <span class="option-title">
+                                <span><span class="metal nickel" aria-hidden="true"></span> Nickel</span>
+                                <span class="option-price">Included</span>
+                            </span>
+                            <span class="option-text">Bright and classic.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="hardware" value="Gold" data-colour="#d4af5f" data-price="180">
+                        <span class="option-box">
+                            <span class="option-title">
+                                <span><span class="metal gold" aria-hidden="true"></span> Gold</span>
+                                <span class="option-price">+ $180</span>
+                            </span>
+                            <span class="option-text">Warm, and lovely with a burst.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="hardware" value="Black" data-colour="#1b1815" data-price="120">
+                        <span class="option-box">
+                            <span class="option-title">
+                                <span><span class="metal black" aria-hidden="true"></span> Black</span>
+                                <span class="option-price">+ $120</span>
+                            </span>
+                            <span class="option-text">Quiet and modern.</span>
+                        </span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset class="build-step">
+                <legend><span class="step-number">4</span> Your details</legend>
+
+                <label for="customer-name">Name</label>
+                <input type="text" id="customer-name" name="customer-name" autocomplete="name" required>
+
+                <label for="customer-email">Email</label>
+                <input type="email" id="customer-email" name="customer-email" autocomplete="email" required>
+
+                <label for="customer-notes">Anything else? <span class="small-text">(optional)</span></label>
+                <textarea id="customer-notes" name="customer-notes" rows="4"
+                          placeholder="Left-handed, a pickup, a different neck shape..."></textarea>
+
+                <div class="build-submit">
+                    <p class="total-line">Estimated price <strong class="build-price">$3,200</strong></p>
+                    <button type="submit" class="button dark-button">Prepare my enquiry</button>
+                </div>
+                <p class="small-text">The estimate is a starting point. We confirm the final price after we talk about your build.</p>
+            </fieldset>
+
+            <!-- Shown after the visitor presses "Prepare my enquiry" -->
+            <div id="enquiry-result" hidden>
+                <h2>Your enquiry</h2>
+                <label for="enquiry-text">Copy this and email it to the workshop.</label>
+                <textarea id="enquiry-text" rows="13" readonly></textarea>
+                <button type="button" class="button dark-button copy-button" onclick="copyEnquiry()">Copy enquiry</button>
+                <p id="copy-message" class="small-text" aria-live="polite"></p>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- Load the script after the HTML so it can find the elements above. -->
+    <script src="script.js"></script>
+</body>
+</html>

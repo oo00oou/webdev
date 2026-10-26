@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guitar Tech">
+    <title>About Us | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header and large background picture (same as the homepage) -->
+    <div class="hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+          
+            </button>
+        </header>
+    
+
+        <div class="hero-text">
+            <h1>Lorem Ipsum<br>Dolor sit<br>Amet consectetur.</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="index.html" class="button gold-button">Home</a>
+                <button type="button" class="button outline-button" onclick="openCommission('Not sure yet')">Gallery</button>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content" class="main-section" tabindex="-1">
+        <section id="story" class="craft">
+            <h2>Lorem Ipsum.<br>dolor sit amet.</h2>
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+            <p>do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               Ut enim ad minim veniam, quis nostrud exercitation ullamco
+               laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </section>
+
+        <section id="process" class="craft">
+            <h2>Lorem Ipsum.<br>dolor sit amet</h2>
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               Ut enim ad minim veniam, quis nostrud exercitation ullamco
+               laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="hero-buttons">
+                <button type="button" class="button dark-button" onclick="openCommission('Not sure yet')">Build your Guitar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- Same popup as the homepage, so script.js finds the elements it expects. -->
+    <dialog id="popup" aria-labelledby="account-title" onclose="popupClosed()">
+        <button class="close-button" type="button" onclick="closePopup()" aria-label="Close popup">×</button>
+
+        <section id="guitar" class="popup-section" hidden>
+            <h2 id="guitar-title">CL-30</h2>
+            <div id="guitar-picture" class="guitar-photo om-guitar popup-photo">
+                <img id="guitar-image" src="assets/1.png" alt="OM acoustic guitar">
+            </div>
+            <p id="guitar-description"></p>
+            <p>Made to order. Tonewoods, finish and final specifications are chosen with you.</p>
+            <button type="button" class="button dark-button" onclick="openCommission(selectedGuitar)">Commission this instrument</button>
+        </section>
+
+        <section id="account" class="popup-section" hidden>
+            <h2 id="account-title">My Account</h2>
+            <p>The account area is coming soon. You can still browse guitars and prepare a build enquiry.</p>
+            <button type="button" class="button dark-button" onclick="closePopup()">Back to the website</button>
+        </section>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>

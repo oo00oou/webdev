@@ -1,0 +1,1759 @@
+/* style.css */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f4f1e9;
+    color: #24211d;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* buttons dont use the page font by themselves */
+button {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+a {
+    color: #24211d;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    font-weight: normal;
+}
+
+/* keeps hidden things hidden */
+[hidden] {
+    display: none !important;
+}
+
+
+/* header and big photo */
+
+.hero {
+    color: #f4f1e9;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent), url("assets/workshop-hero.png");
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 3%;
+}
+
+.logo {
+    color: #f4f1e9;
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    margin-left: auto;
+    margin-right: 28px;
+}
+
+#menu a, #menu button {
+    padding: 8px 0;
+    border: none;
+    background: none;
+    color: #f4f1e9;
+    font-size: 16px;
+}
+
+#menu a:hover, #menu button:hover {
+    color: #dfc89e;
+}
+
+#menu .commission-link {
+    padding: 6px 25px;
+    border: 1px solid #c9bdab;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #b79b67;
+    border-radius: 3px;
+    background-color: #352b22;
+    color: #f4f1e9;
+}
+
+.menu-button:hover {
+    background-color: #514130;
+}
+
+/* curtain drawing in the menu button */
+.curtain-icon {
+    display: flex;
+    gap: 2px;
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+    border: 1px solid #f4f1e9;
+}
+
+.curtain-icon span {
+    flex: 1;
+    border-left: 2px solid #f4f1e9;
+    border-right: 1px solid #f4f1e9;
+}
+
+/* stops the page scrolling when the menu or popup is open */
+.curtain-open, .popup-open {
+    overflow: hidden;
+}
+
+/* full screen menu (javascript adds curtain-open to the body) */
+.curtain-open #menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    margin: 0;
+    padding: 70px 24px;
+    overflow-y: auto;
+    background-color: #1c1712;
+}
+
+.curtain-open #menu a, .curtain-open #menu button {
+    font-size: 28px;
+}
+
+.curtain-open .menu-button {
+    position: fixed;
+    top: 20px;
+    right: 3%;
+    z-index: 11;
+}
+
+.hero-text {
+    width: 87%;
+    margin: 0 auto;
+    padding: 45px 0 70px 0;
+}
+
+h1 {
+    margin-bottom: 18px;
+    font-size: 76px;
+    line-height: 1.05;
+    overflow-wrap: break-word;
+}
+
+.decoration {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 24px;
+    color: #b49a6b;
+}
+
+.gold-line {
+    width: 100px;
+    height: 1px;
+    background-color: #b49a6b;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+/* buttons */
+
+.button {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.gold-button {
+    background-color: #b49a6b;
+    color: black;
+}
+
+.gold-button:hover {
+    background-color: #c7ae80;
+}
+
+.outline-button {
+    border-color: #b49a6b;
+    background-color: transparent;
+    color: #f4f1e9;
+}
+
+.outline-button:hover {
+    background-color: rgba(180, 154, 107, 0.15);
+}
+
+.dark-button {
+    background-color: #33291e;
+    color: #f4f1e9;
+}
+
+.dark-button:hover {
+    background-color: #514130;
+}
+
+
+/* guitars and workshop text */
+
+.main-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: 89%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* min-width 0 lets the cards shrink */
+.guitars {
+    display: flex;
+    flex: 2;
+    gap: 32px;
+    min-width: 0;
+}
+
+.guitar-card {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: 1px solid #9d8c71;
+    border-radius: 2px;
+    background-color: #f4f1e9;
+    color: #24211d;
+    text-align: left;
+    overflow: hidden;
+}
+
+.guitar-card:hover {
+    background-color: #e9e1d4;
+}
+
+.guitar-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 15px;
+}
+
+.guitar-photo {
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #251d16;
+}
+
+.guitar-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.craft {
+    flex: 1;
+    min-width: 0;
+    padding-left: 60px;
+    border-left: 1px solid #c9bdab;
+}
+
+.craft h2 {
+    margin-bottom: 20px;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.craft p {
+    margin-bottom: 0;
+    font-size: 17px;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px 5.5%;
+    border-top: 1px solid #dfd6c7;
+    color: #746b5e;
+    font-size: 14px;
+}
+
+
+/* popup */
+
+dialog {
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    padding: 35px;
+    border: 1px solid #b4a387;
+    border-radius: 3px;
+    background-color: #f4f1e9;
+    color: #24211d;
+    overflow-y: auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+dialog h2 {
+    margin: 10px 25px 20px 0;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background-color: #f4f1e9;
+    font-size: 28px;
+}
+
+.close-button:hover {
+    background-color: #e9e1d4;
+}
+
+.popup-photo {
+    width: 70%;
+    margin: 20px auto;
+}
+
+
+/* enquiry form */
+
+label {
+    display: block;
+    margin: 15px 0 5px 0;
+    font-size: 17px;
+}
+
+select, textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #baad99;
+    border-radius: 2px;
+    background-color: #faf8f2;
+    font-family: Georgia, serif;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.small-text {
+    color: #625c52;
+    font-size: 14px;
+}
+
+#enquiry-result {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #c9bdab;
+}
+
+.copy-button {
+    margin-top: 15px;
+}
+
+
+/* tablet */
+@media (max-width: 900px) {
+
+    /* links get hidden, use the menu button instead */
+    #menu {
+        display: none;
+    }
+
+    .menu-button {
+        margin-left: auto;
+    }
+
+    h1 {
+        font-size: 64px;
+    }
+
+    .main-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 35px;
+    }
+
+    .craft {
+        padding: 30px 0 0 0;
+        border-left: none;
+        border-top: 1px solid #c9bdab;
+    }
+}
+
+
+/* phone */
+@media (max-width: 600px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    .curtain-open .menu-button {
+        top: 18px;
+        right: 5%;
+    }
+
+    /* darker at the top so the text is easier to read */
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.15)), url("assets/workshop-hero.png");
+        background-position: 64% center;
+    }
+
+    .hero-text {
+        width: 90%;
+        padding: 40px 0;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 80px;
+    }
+
+    .main-section {
+        width: 90%;
+        padding: 30px 0;
+    }
+
+    .guitars {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* photo on the left and name on the right */
+    .guitar-card {
+        display: flex;
+        align-items: center;
+        flex: auto;
+        width: 100%;
+    }
+
+    .guitar-card .guitar-photo {
+        width: 42%;
+        flex-shrink: 0;
+    }
+
+    .guitar-name {
+        flex: 1;
+        padding: 15px;
+    }
+
+    .craft h2 {
+        font-size: 34px;
+    }
+
+    dialog {
+        padding: 25px;
+    }
+
+    .popup-photo {
+        width: 100%;
+    }
+}
+
+
+/* ---------- gallery page ---------- */
+
+/* shorter, darker version of the home page photo */
+.page-hero {
+    background-image: linear-gradient(rgba(28, 23, 18, 0.78), rgba(28, 23, 18, 0.55)), url("assets/workshop-hero.png");
+    background-position: center 35%;
+}
+
+.page-hero .hero-text {
+    width: 89%;
+    max-width: 1500px;
+    padding: 35px 0 60px 0;
+}
+
+.page-hero h1 {
+    font-size: 64px;
+}
+
+.page-hero .decoration {
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    margin: 0 0 10px 0;
+    color: #dfc89e;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero-intro {
+    max-width: 560px;
+    margin: 0;
+}
+
+/* gold underline on the page you are on */
+#menu a[aria-current="page"] {
+    color: #dfc89e;
+    border-bottom: 1px solid #dfc89e;
+}
+
+.gallery-page {
+    width: 89%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 45px 0 70px 0;
+}
+
+/* filter buttons and photo count */
+.gallery-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfd6c7;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filters button {
+    padding: 6px 20px;
+    border: 1px solid #9d8c71;
+    border-radius: 2px;
+    background-color: transparent;
+    color: #24211d;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.filters button:hover {
+    background-color: #e9e1d4;
+}
+
+/* the filter that is switched on */
+.filters button[aria-pressed="true"] {
+    border-color: #33291e;
+    background-color: #33291e;
+    color: #f4f1e9;
+}
+
+#gallery-count {
+    margin: 0;
+}
+
+/* photo grid: every tile is square, the feature tile covers 2 x 2 */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gallery-grid li {
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-grid .feature {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* when a filter is on, the feature tile goes back to normal size */
+.gallery-grid.filtered .feature {
+    grid-column: auto;
+    grid-row: auto;
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 1px solid #9d8c71;
+    border-radius: 2px;
+    background-color: #251d16;
+    color: #f4f1e9;
+    text-align: left;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* slow zoom when you point at a photo */
+.gallery-item:hover img, .gallery-item:focus-visible img {
+    transform: scale(1.04);
+}
+
+.gallery-item:focus-visible {
+    outline: 3px solid #b49a6b;
+    outline-offset: 3px;
+}
+
+/* name and category on a dark fade at the bottom of the photo */
+.gallery-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 45px 16px 12px 16px;
+    background: linear-gradient(transparent, rgba(20, 16, 12, 0.85));
+}
+
+.feature .gallery-title {
+    font-size: 26px;
+}
+
+.gallery-tag {
+    color: #dfc89e;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* the popup gets wider when it shows a photo */
+dialog:has(#photo:not([hidden])) {
+    max-width: 960px;
+}
+
+.viewer {
+    margin: 0;
+}
+
+.viewer-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    border-radius: 2px;
+    background-color: #251d16;
+}
+
+.viewer-frame img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(85vh - 300px);
+    object-fit: contain;
+}
+
+.viewer figcaption {
+    margin-top: 15px;
+}
+
+.viewer-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #c9bdab;
+}
+
+.outline-dark-button {
+    border-color: #33291e;
+    background-color: transparent;
+    color: #24211d;
+}
+
+.outline-dark-button:hover {
+    background-color: #e9e1d4;
+}
+
+
+/* gallery on a tablet */
+@media (max-width: 900px) {
+
+    .page-hero h1 {
+        font-size: 52px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    /* name above category, so long names fit on smaller tiles */
+    .gallery-label {
+        flex-direction: column;
+        gap: 0;
+        line-height: 1.3;
+    }
+}
+
+
+/* gallery on a phone */
+@media (max-width: 600px) {
+
+    .page-hero .hero-text {
+        width: 90%;
+        padding: 25px 0 45px 0;
+    }
+
+    /* smaller filter buttons so all four fit on one line */
+    .filters {
+        gap: 8px;
+    }
+
+    .filters button {
+        padding: 6px 12px;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    .page-hero h1 {
+        font-size: 44px;
+    }
+
+    .gallery-page {
+        width: 90%;
+        padding: 30px 0 50px 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .gallery-label {
+        padding: 35px 12px 10px 12px;
+        font-size: 16px;
+    }
+
+    .feature .gallery-title {
+        font-size: 22px;
+    }
+
+    .gallery-tag {
+        font-size: 11px;
+    }
+
+    .viewer-controls .button {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+}
+
+
+/* ---------- build page ---------- */
+
+/* the Build link has a box around it, so make the whole box gold on the build page */
+#menu .commission-link[aria-current="page"] {
+    border: 1px solid #dfc89e;
+}
+
+.build-page {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: start;
+    gap: 60px;
+    width: 89%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 45px 0 70px 0;
+}
+
+/* the drawing stays on screen while you scroll through the choices
+   (the drawing's max-height below leaves room for the summary under it) */
+.build-preview {
+    position: sticky;
+    top: 24px;
+}
+
+.preview-frame {
+    padding: 20px;
+    border: 1px solid #9d8c71;
+    border-radius: 2px;
+    background: radial-gradient(circle at 50% 45%, #3d3026, #1c1610 75%);
+}
+
+/* the two colours JavaScript changes */
+#guitar-preview {
+    --finish: #e3c18c;
+    --hardware: #c9ced3;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 420px);
+    min-height: 320px;
+}
+
+/* parts of the drawing */
+.body-outline {
+    fill: none;
+    stroke: #120c07;
+    stroke-width: 6;
+}
+
+.body-finish {
+    fill: var(--finish);
+}
+
+.body-grain {
+    fill: url(#grain);
+}
+
+.body-binding {
+    fill: none;
+    stroke: #efe4cc;
+    stroke-width: 2.5;
+}
+
+.pickguard {
+    fill: #4a2413;
+    opacity: 0.85;
+}
+
+.bridge, .fretboard {
+    fill: #2a190f;
+}
+
+.fretboard, .headstock {
+    stroke: #120c07;
+    stroke-width: 1.5;
+}
+
+.headstock {
+    fill: #2e1d12;
+}
+
+.saddle, .nut {
+    fill: #efe6d2;
+}
+
+.soundhole {
+    fill: #120c08;
+}
+
+.rosette-dark {
+    fill: none;
+    stroke: #3b2416;
+    stroke-width: 6;
+}
+
+.rosette-line {
+    fill: none;
+    stroke: #efe4cc;
+    stroke-width: 1.2;
+}
+
+.fret {
+    stroke: #cfc7ba;
+    stroke-width: 1.4;
+}
+
+.marker {
+    fill: #e9e1d0;
+}
+
+.hardware {
+    fill: var(--hardware);
+    stroke: rgba(239, 228, 204, 0.5);
+    stroke-width: 1;
+}
+
+.strings {
+    fill: none;
+    stroke: #e0d9cc;
+    opacity: 0.85;
+}
+
+/* name, choices and price under the drawing */
+.preview-summary {
+    margin-top: 20px;
+}
+
+.preview-summary h2 {
+    margin-bottom: 10px;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.build-list {
+    margin: 0;
+}
+
+.build-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 6px 0;
+    border-bottom: 1px solid #dfd6c7;
+    font-size: 16px;
+}
+
+.build-list dt {
+    color: #625c52;
+}
+
+.build-list dd {
+    margin: 0;
+    text-align: right;
+}
+
+.build-list .build-total {
+    border-bottom: none;
+    font-size: 20px;
+}
+
+.build-total dt {
+    color: #24211d;
+}
+
+/* each group of choices */
+.build-step {
+    margin: 0 0 40px 0;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+.build-step legend {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding: 0;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #b49a6b;
+    border-radius: 50%;
+    color: #8a6f3e;
+    font-size: 17px;
+}
+
+/*
+   The real radio button is hidden but still works with the keyboard and screen readers.
+   The box next to it changes when its radio button is checked.
+*/
+.option input, .swatch-option input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.option, .swatch-option {
+    position: relative;
+    display: block;
+    margin: 0;
+    cursor: pointer;
+}
+
+.body-options, .hardware-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.option-box, .swatch-box {
+    display: block;
+    height: 100%;
+    padding: 16px;
+    border: 1px solid #c9bdab;
+    border-radius: 2px;
+    background-color: #faf8f2;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.option:hover .option-box, .swatch-option:hover .swatch-box {
+    border-color: #9d8c71;
+    background-color: #fffdf8;
+}
+
+/* the chosen option gets a dark border and a gold line on the left */
+.option input:checked + .option-box,
+.swatch-option input:checked + .swatch-box {
+    border-color: #33291e;
+    background-color: #ffffff;
+    box-shadow: inset 4px 0 0 #b49a6b;
+}
+
+/* keyboard users can see where they are */
+.option input:focus-visible + .option-box,
+.swatch-option input:focus-visible + .swatch-box {
+    outline: 3px solid #b49a6b;
+    outline-offset: 2px;
+}
+
+.option-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 10px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.option-price {
+    color: #8a6f3e;
+    font-size: 14px;
+}
+
+.option-sub {
+    display: block;
+    margin-top: 2px;
+    color: #625c52;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.option-text {
+    display: block;
+    margin-top: 8px;
+    color: #4a443b;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* finish colours */
+.swatch-options {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.swatch-box {
+    padding: 14px 8px;
+    text-align: center;
+}
+
+.swatch {
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 10px auto;
+    border: 2px solid #efe4cc;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #9d8c71;
+}
+
+.swatch.natural {
+    background-color: #e3c18c;
+}
+
+.swatch.sunburst {
+    background: radial-gradient(circle, #f0bd5e, #d0832f 45%, #6e3514 75%, #230f06);
+}
+
+.swatch.tobacco {
+    background: radial-gradient(circle, #b98142, #7e4721 45%, #3a1c0b 80%, #160904);
+}
+
+.swatch.cherry {
+    background: radial-gradient(circle, #c8483a, #93261c 60%, #3e0a06);
+}
+
+.swatch.black {
+    background-color: #1f1c19;
+}
+
+.swatch-name {
+    display: block;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+/* little metal circles next to the hardware names */
+.metal {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    border: 1px solid #7a6a58;
+    border-radius: 50%;
+    vertical-align: -2px;
+}
+
+.metal.nickel {
+    background-color: #c9ced3;
+}
+
+.metal.gold {
+    background-color: #d4af5f;
+}
+
+.metal.black {
+    background-color: #1b1815;
+}
+
+/* contact details */
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #baad99;
+    border-radius: 2px;
+    background-color: #faf8f2;
+    font-family: Georgia, serif;
+    font-size: 16px;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid #b49a6b;
+    outline-offset: 1px;
+}
+
+.build-submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #c9bdab;
+}
+
+.total-line {
+    margin: 0;
+    font-size: 20px;
+}
+
+.total-line strong {
+    margin-left: 6px;
+    font-weight: normal;
+    font-size: 26px;
+}
+
+#enquiry-result h2 {
+    margin-bottom: 0;
+    font-size: 30px;
+}
+
+#enquiry-text {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* build page on a tablet: drawing on top, choices underneath */
+@media (max-width: 900px) {
+
+    .build-page {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    /* the drawing and the summary sit side by side */
+    .build-preview {
+        position: static;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 30px;
+    }
+
+    .preview-summary {
+        margin-top: 0;
+    }
+
+    #guitar-preview {
+        max-height: 460px;
+    }
+}
+
+
+/* build page on a phone */
+@media (max-width: 600px) {
+
+    .build-page {
+        width: 90%;
+        padding: 30px 0 50px 0;
+    }
+
+    .build-preview {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    #guitar-preview {
+        max-height: 400px;
+    }
+
+    .build-step legend {
+        font-size: 24px;
+    }
+
+    /* choices stack one above the other */
+    .body-options, .hardware-options {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .swatch-options {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .swatch {
+        width: 46px;
+        height: 46px;
+    }
+
+    .build-submit .button {
+        width: 100%;
+    }
+}
+
+
+/* ---------- shared bits for the build, log in and account pages ---------- */
+
+.button.wide-button {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.save-button {
+    width: 100%;
+    margin-top: 18px;
+}
+
+#save-message {
+    min-height: 1.6em;
+    margin: 8px 0 0 0;
+}
+
+#save-message a, .form-message a {
+    color: #24211d;
+    text-decoration: underline;
+}
+
+/* a button that looks like a link */
+.text-button {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #24211d;
+    font-size: inherit;
+    text-decoration: underline;
+}
+
+.text-button:hover {
+    color: #8a6f3e;
+}
+
+/* red error box under a form */
+.form-message {
+    margin: 18px 0 0 0;
+    padding: 10px 14px;
+    border-left: 3px solid #9b2c1f;
+    background-color: #f6e3dc;
+    color: #6e1d13;
+    font-size: 15px;
+}
+
+input[readonly] {
+    background-color: #ece6da;
+    color: #625c52;
+}
+
+
+/* ---------- log in page ---------- */
+
+.login-page {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    align-items: start;
+    gap: 50px;
+    width: 89%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 0 80px 0;
+}
+
+.login-card {
+    padding: 35px;
+    border: 1px solid #c9bdab;
+    border-radius: 2px;
+    background-color: #faf8f2;
+}
+
+/* the two tabs at the top of the card */
+.login-tabs {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #c9bdab;
+}
+
+.login-tabs button {
+    flex: 1;
+    margin-bottom: -1px;
+    padding: 10px 0 12px 0;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: none;
+    color: #625c52;
+    font-size: 20px;
+}
+
+.login-tabs button:hover {
+    color: #24211d;
+}
+
+.login-tabs button[aria-selected="true"] {
+    border-bottom-color: #b49a6b;
+    color: #24211d;
+}
+
+/* password box with a Show / Hide button inside it */
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 75px;
+}
+
+.show-password {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    padding: 4px 10px;
+    border: none;
+    background: none;
+    color: #8a6f3e;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.show-password:hover {
+    color: #24211d;
+}
+
+.switch-text {
+    margin: 22px 0 0 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+.demo-note {
+    margin: 28px 0 0 0;
+    padding-top: 18px;
+    border-top: 1px solid #dfd6c7;
+    color: #625c52;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* dark panel beside the card */
+.login-perks {
+    padding: 35px;
+    border-radius: 2px;
+    background: radial-gradient(circle at 30% 20%, #3d3026, #1c1610 80%);
+    color: #f4f1e9;
+}
+
+.login-perks h2 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.login-perks ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.login-perks li {
+    padding: 16px 0;
+    border-top: 1px solid rgba(223, 200, 158, 0.25);
+}
+
+.perk-title {
+    display: block;
+    color: #dfc89e;
+    font-size: 19px;
+}
+
+.perk-text {
+    display: block;
+    color: #d8d0c2;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* ---------- account page ---------- */
+
+.account-page {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    align-items: start;
+    gap: 50px;
+    width: 89%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 50px 0 80px 0;
+}
+
+/* profile card on the left */
+.account-card {
+    position: sticky;
+    top: 24px;
+    padding: 30px;
+    border: 1px solid #c9bdab;
+    border-radius: 2px;
+    background-color: #faf8f2;
+    text-align: center;
+}
+
+.initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 16px auto;
+    border: 2px solid #b49a6b;
+    border-radius: 50%;
+    background-color: #33291e;
+    color: #f4f1e9;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.account-card h2 {
+    margin-bottom: 4px;
+    font-size: 26px;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.account-email {
+    margin: 0;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+/* sections on the right */
+.account-section {
+    margin-bottom: 50px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #c9bdab;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.section-heading p {
+    margin: 0;
+}
+
+.empty-state {
+    padding: 35px;
+    border: 1px dashed #b4a387;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.empty-state p {
+    margin-top: 0;
+}
+
+/* one saved build */
+.saved-builds {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.saved-build {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 22px;
+    margin-bottom: 12px;
+    padding: 18px 20px;
+    border: 1px solid #c9bdab;
+    border-radius: 2px;
+    background-color: #faf8f2;
+}
+
+.saved-build .saved-swatch {
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.saved-text {
+    flex: 1;
+    min-width: 160px;
+}
+
+.saved-text h3 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.saved-text p {
+    margin: 2px 0 0 0;
+}
+
+.saved-info {
+    font-size: 16px;
+}
+
+.saved-price {
+    margin: 0;
+    font-size: 22px;
+}
+
+.saved-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.saved-buttons .button {
+    padding: 8px 18px;
+    font-size: 15px;
+}
+
+/* details form: two boxes per row on wide screens */
+.details-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+}
+
+.details-form label {
+    margin-top: 0;
+}
+
+.details-form > div {
+    margin-bottom: 18px;
+}
+
+.details-form .small-text {
+    margin: 6px 0 0 0;
+}
+
+.details-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    grid-column: 1 / -1;
+}
+
+.details-buttons p {
+    margin: 0;
+}
+
+/* delete account */
+.delete-section {
+    padding: 25px;
+    border: 1px solid #d9b3a8;
+    border-radius: 2px;
+}
+
+.delete-section h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.delete-section p {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.delete-button {
+    border-color: #9b2c1f;
+    background-color: transparent;
+    color: #9b2c1f;
+}
+
+.delete-button:hover {
+    background-color: #9b2c1f;
+    color: #faf8f2;
+}
+
+
+/* log in and account pages on a tablet */
+@media (max-width: 900px) {
+
+    .login-page {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 600px;
+        gap: 30px;
+    }
+
+    .account-page {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    /* the profile card turns into a strip across the top */
+    .account-card {
+        position: static;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 0 22px;
+        text-align: left;
+    }
+
+    .initials {
+        grid-row: span 3;
+        margin: 0;
+    }
+
+    .account-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* log in and account pages on a phone */
+@media (max-width: 600px) {
+
+    .login-page, .account-page {
+        width: 90%;
+        padding: 30px 0 50px 0;
+    }
+
+    .login-card, .login-perks {
+        padding: 24px;
+    }
+
+    .account-card {
+        padding: 22px;
+    }
+
+    .initials {
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
+    }
+
+    .account-actions .button {
+        flex: 1;
+        padding: 12px 10px;
+    }
+
+    .details-form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saved-price {
+        margin-left: auto;
+    }
+
+    .saved-buttons {
+        width: 100%;
+    }
+
+    .saved-buttons .button {
+        flex: 1;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+}

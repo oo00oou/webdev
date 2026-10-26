@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to your Guitar Tech account or create one.">
+    <title>Log in | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and a shorter background picture than the home page -->
+    <div class="hero page-hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html">Gallery</a>
+                <a href="index.html#craft">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="login.html" id="account-link" aria-current="page" onclick="closeCurtainMenu()">Log in</a>
+                <a href="build.html" class="commission-link">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <p class="eyebrow">My Account</p>
+            <h1>Welcome</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <p class="hero-intro">Log in to see your saved builds, or make an account in under a minute.</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="login-page" tabindex="-1">
+
+        <div class="login-card">
+
+            <!-- Two tabs. JavaScript shows one panel at a time. -->
+            <div class="login-tabs" role="tablist" aria-label="Log in or create an account">
+                <button type="button" role="tab" id="login-tab" aria-selected="true"
+                        aria-controls="login-panel" onclick="showLoginTab('login')">Log in</button>
+                <button type="button" role="tab" id="create-tab" aria-selected="false"
+                        aria-controls="create-panel" onclick="showLoginTab('create')">Create account</button>
+            </div>
+
+            <!-- Log in -->
+            <section id="login-panel" role="tabpanel" aria-labelledby="login-tab">
+                <form onsubmit="logIn(event)">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" autocomplete="email" required>
+
+                    <label for="login-password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="login-password" autocomplete="current-password" required>
+                        <button type="button" class="show-password" aria-controls="login-password"
+                                onclick="togglePassword(this)">Show</button>
+                    </div>
+
+                    <p id="login-message" class="form-message" role="alert" hidden></p>
+
+                    <button type="submit" class="button dark-button wide-button">Log in</button>
+                </form>
+
+                <p class="switch-text">New here?
+                    <button type="button" class="text-button" onclick="showLoginTab('create')">Create an account</button>
+                </p>
+            </section>
+
+            <!-- Create account -->
+            <section id="create-panel" role="tabpanel" aria-labelledby="create-tab" hidden>
+                <form onsubmit="createAccount(event)">
+                    <label for="create-name">Name</label>
+                    <input type="text" id="create-name" autocomplete="name" required>
+
+                    <label for="create-email">Email</label>
+                    <input type="email" id="create-email" autocomplete="email" required>
+
+                    <label for="create-password">Password <span class="small-text">(at least 8 characters)</span></label>
+                    <div class="password-field">
+                        <input type="password" id="create-password" autocomplete="new-password" minlength="8" required>
+                        <button type="button" class="show-password" aria-controls="create-password"
+                                onclick="togglePassword(this)">Show</button>
+                    </div>
+
+                    <label for="create-confirm">Type the password again</label>
+                    <input type="password" id="create-confirm" autocomplete="new-password" minlength="8" required>
+
+                    <p id="create-message" class="form-message" role="alert" hidden></p>
+
+                    <button type="submit" class="button dark-button wide-button">Create account</button>
+                </form>
+
+                <p class="switch-text">Already have an account?
+                    <button type="button" class="text-button" onclick="showLoginTab('login')">Log in</button>
+                </p>
+            </section>
+
+            <p class="demo-note">Demo site: accounts are saved in this browser only, not on a server.
+               Please don't use a password you use anywhere else.</p>
+        </div>
+
+        <!-- Reasons to make an account -->
+        <aside class="login-perks" aria-label="Why make an account">
+            <h2>With an account you can</h2>
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+            <ul>
+                <li>
+                    <span class="perk-title">Save your builds</span>
+                    <span class="perk-text">Keep every body, finish and hardware combination you like.</span>
+                </li>
+                <li>
+                    <span class="perk-title">Pick up where you left off</span>
+                    <span class="perk-text">Open a saved build in the builder and keep changing it.</span>
+                </li>
+                <li>
+                    <span class="perk-title">Enquire faster</span>
+                    <span class="perk-text">Your name and email are filled in for you.</span>
+                </li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- Load the script after the HTML so it can find the elements above. -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photos of Guitar Tech instruments, details and the workshop.">
+    <title>Gallery | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and a shorter background picture than the home page -->
+    <div class="hero page-hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html" aria-current="page" onclick="closeCurtainMenu()">Gallery</a>
+                <a href="index.html#craft">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="account.html" id="account-link">My Account</a>
+                <a href="build.html" class="commission-link">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <p class="eyebrow">The collection</p>
+            <h1>Gallery</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <p class="hero-intro">Finished instruments, close-up details and a look around the workshop.</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="gallery-page" tabindex="-1">
+
+        <!-- Filter buttons. aria-pressed tells screen readers which one is on. -->
+        <div class="gallery-toolbar">
+            <div class="filters" role="group" aria-label="Filter photos">
+                <button type="button" aria-pressed="true" onclick="filterGallery('all', this)">All</button>
+                <button type="button" aria-pressed="false" onclick="filterGallery('instruments', this)">Instruments</button>
+                <button type="button" aria-pressed="false" onclick="filterGallery('details', this)">Details</button>
+                <button type="button" aria-pressed="false" onclick="filterGallery('workshop', this)">Workshop</button>
+            </div>
+            <p id="gallery-count" class="small-text" aria-live="polite">Showing all 9 photos</p>
+        </div>
+
+        <!--
+            Each photo is one <li>. To add a photo, copy a whole <li> block and change:
+              data-category  - instruments, details or workshop
+              data-caption   - the sentence shown under the big photo
+              src and alt    - the picture and a short description of it
+              gallery-title  - the name on the tile
+            The first <li> has class="feature" so it shows twice as big.
+            If a picture file is missing, onerror hides it and the tile stays dark.
+        -->
+        <ul class="gallery-grid">
+            <li class="feature" data-category="instruments">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="A small, comfortable guitar for lighter playing and quiet sessions.">
+                    <img src="assets/1.png" alt="A small spruce acoustic guitar" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">CL-30</span>
+                        <span class="gallery-tag">Instrument</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="workshop">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="Where every build starts: hand tools, clamps and a lot of patience.">
+                    <img src="assets/workshop-hero.png" alt="Inside the Guitar Tech workshop" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">The bench</span>
+                        <span class="gallery-tag">Workshop</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="details">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="The ring around the soundhole, inlaid by hand one strip at a time.">
+                    <img src="assets/rosette.png" alt="Close-up of a soundhole rosette inlay" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">Rosette</span>
+                        <span class="gallery-tag">Detail</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="instruments">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="A versatile guitar with a balanced body size, suited to fingerstyle and chords.">
+                    <img src="assets/2.png" alt="The dark wooden back of an OM guitar" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">SD-100</span>
+                        <span class="gallery-tag">Instrument</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="details">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="The braces under the top shape the sound as much as the wood does.">
+                    <img src="assets/bracing.png" alt="Wooden braces glued inside a guitar top" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">Bracing</span>
+                        <span class="gallery-tag">Detail</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="workshop">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="Each neck is shaped by hand until it sits right in the player's palm.">
+                    <img src="assets/neck-carving.png" alt="A guitar neck being shaped by hand" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">Carving the neck</span>
+                        <span class="gallery-tag">Workshop</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="instruments">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="A larger guitar for full chords and strong strumming.">
+                    <img src="assets/3.png" alt="A large dreadnought acoustic guitar" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">DD-12</span>
+                        <span class="gallery-tag">Instrument</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="details">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="Where the strings meet the body, and where small adjustments make a big difference.">
+                    <img src="assets/bridge.png" alt="Close-up of a guitar bridge and saddle" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">Bridge and saddle</span>
+                        <span class="gallery-tag">Detail</span>
+                    </span>
+                </button>
+            </li>
+
+            <li data-category="workshop">
+                <button class="gallery-item" type="button" onclick="openPhoto(this)"
+                        data-caption="Thin coats, sanded back between each, for a finish that lets the wood ring.">
+                    <img src="assets/finishing.png" alt="A guitar body hanging up to dry after finishing" onerror="this.hidden = true">
+                    <span class="gallery-label">
+                        <span class="gallery-title">Finishing</span>
+                        <span class="gallery-tag">Workshop</span>
+                    </span>
+                </button>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- The same popup as the home page, with a photo viewer section added. -->
+    <dialog id="popup" aria-labelledby="photo-title" onclose="popupClosed()">
+        <button class="close-button" type="button" onclick="closePopup()" aria-label="Close popup">×</button>
+
+        <section id="photo" class="popup-section" hidden>
+            <h2 id="photo-title">Photo</h2>
+            <figure class="viewer">
+                <div class="viewer-frame">
+                    <img id="photo-image" src="assets/1.png" alt="" onerror="this.hidden = true">
+                </div>
+                <figcaption id="photo-caption"></figcaption>
+            </figure>
+            <div class="viewer-controls">
+                <button type="button" class="button outline-dark-button" onclick="nextPhoto(-1)">← Previous</button>
+                <span id="photo-count" class="small-text" aria-live="polite">1 of 9</span>
+                <button type="button" class="button outline-dark-button" onclick="nextPhoto(1)">Next →</button>
+            </div>
+        </section>
+    </dialog>
+
+    <!-- Load the script after the HTML so it can find the elements above. -->
+    <script src="script.js"></script>
+</body>
+</html>

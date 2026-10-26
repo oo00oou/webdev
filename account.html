@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Guitar Tech account: saved builds and your details.">
+    <title>My Account | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and a shorter background picture than the home page -->
+    <div class="hero page-hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html">Gallery</a>
+                <a href="index.html#craft">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="account.html" id="account-link" aria-current="page" onclick="closeCurtainMenu()">My Account</a>
+                <a href="build.html" class="commission-link">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <p class="eyebrow">My Account</p>
+            <h1>Kia ora, <span id="greeting-name">friend</span></h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <p class="hero-intro">Your saved builds and details, all in one place.</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="account-page" tabindex="-1">
+
+        <!-- Left side: who is logged in -->
+        <aside class="account-card" aria-label="Your profile">
+            <span id="account-initials" class="initials" aria-hidden="true">GT</span>
+            <h2 id="account-name">Name</h2>
+            <p id="account-email" class="account-email">email</p>
+            <p id="account-since" class="small-text">Member since</p>
+
+            <div class="account-actions">
+                <a href="build.html" class="button dark-button">Start a new build</a>
+                <button type="button" class="button outline-dark-button" onclick="logOut()">Log out</button>
+            </div>
+        </aside>
+
+        <div class="account-content">
+
+            <!-- Saved builds. JavaScript copies the template below once for each build. -->
+            <section class="account-section" aria-labelledby="builds-heading">
+                <div class="section-heading">
+                    <h2 id="builds-heading" tabindex="-1">Saved builds</h2>
+                    <p id="builds-count" class="small-text">0 builds</p>
+                </div>
+
+                <div id="no-builds" class="empty-state">
+                    <p>No saved builds yet. Design a guitar in the builder and press <strong>Save to my account</strong>.</p>
+                    <a href="build.html" class="button outline-dark-button">Go to the builder</a>
+                </div>
+
+                <ul id="saved-builds" class="saved-builds"></ul>
+
+                <template id="build-card-template">
+                    <li class="saved-build">
+                        <span class="swatch saved-swatch" aria-hidden="true"></span>
+                        <div class="saved-text">
+                            <h3 class="saved-name">SD-100</h3>
+                            <p class="saved-info">Natural finish · Nickel hardware</p>
+                            <p class="saved-date small-text">Saved</p>
+                        </div>
+                        <p class="saved-price">$3,200</p>
+                        <div class="saved-buttons">
+                            <a class="button dark-button saved-open" href="build.html">Open in builder</a>
+                            <button type="button" class="button outline-dark-button saved-remove" onclick="removeBuild(this)">Remove</button>
+                        </div>
+                    </li>
+                </template>
+            </section>
+
+            <!-- Edit details -->
+            <section class="account-section" aria-labelledby="details-heading">
+                <div class="section-heading">
+                    <h2 id="details-heading">Your details</h2>
+                </div>
+
+                <form id="details-form" class="details-form" onsubmit="saveDetails(event)">
+                    <div>
+                        <label for="details-name">Name</label>
+                        <input type="text" id="details-name" autocomplete="name" required>
+                    </div>
+                    <div>
+                        <label for="details-email">Email</label>
+                        <input type="email" id="details-email" readonly aria-describedby="email-note">
+                        <p id="email-note" class="small-text">Your email is your log in, so it can't be changed here.</p>
+                    </div>
+                    <div>
+                        <label for="details-phone">Phone <span class="small-text">(optional)</span></label>
+                        <input type="tel" id="details-phone" autocomplete="tel">
+                    </div>
+                    <div class="details-buttons">
+                        <button type="submit" class="button dark-button">Save changes</button>
+                        <p id="details-message" class="small-text" aria-live="polite"></p>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Delete account -->
+            <section class="account-section delete-section" aria-labelledby="delete-heading">
+                <h2 id="delete-heading">Delete account</h2>
+                <p>This removes your account and all saved builds from this browser. It can't be undone.</p>
+                <button type="button" class="button delete-button" onclick="deleteAccount()">Delete my account</button>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- Load the script after the HTML so it can find the elements above. -->
+    <script src="script.js"></script>
+</body>
+</html>
