@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guitar Tech.">
+    <title>Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and large background picture -->
+    <div class="hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html">Gallery</a>
+                <a href="#craft" onclick="closeCurtainMenu()">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="account.html" id="account-link">My Account</a>
+                <a href="build.html" class="commission-link">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <h1>Lorem Ipsum sit<br>consectetur<br>adipiscing elit</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="gallery.html" class="button gold-button">Gallery</a>
+                <a href="build.html" class="button outline-button">Build</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guitar cards and the text beside them -->
+    <main id="main-content" class="main-section" tabindex="-1">
+        <section id="instruments" class="guitars" aria-label="Guitar collection">
+            <button class="guitar-card" type="button" onclick="showGuitar('CL-30')" aria-label="Lorem Ipsum">
+                <span class="guitar-photo small-guitar">
+                    <img src="assets/1.png" alt="A small spruce acoustic guitar">
+                </span>
+                <span class="guitar-name">CL-30 <span aria-hidden="true">→</span></span>
+            </button>
+
+            <button class="guitar-card" type="button" onclick="showGuitar('SD-100')" aria-label="Lorem Ipsum">
+                <span class="guitar-photo om-guitar">
+                    <img src="assets/2.png" alt="2.png">
+                </span>
+                <span class="guitar-name">SD-100 <span aria-hidden="true">→</span></span>
+            </button>
+
+            <button class="guitar-card" type="button" onclick="showGuitar('DD-12')" aria-label="Lorem impsum">
+                <span class="guitar-photo dreadnought-guitar">
+                    <img src="assets/3.png" alt="3.png">
+                </span>
+                <span class="guitar-name">DD-12<span aria-hidden="true">→</span></span>
+            </button>
+        </section>
+
+        <section id="craft" class="craft">
+            <h2>Lorem ipsum dolor sit amet.<br>consectetur adipiscing elit.</h2>
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               Ut enim ad minim veniam, quis nostrud exercitation ullamco
+               laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </section>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- JavaScript shows one section at a time inside this popup. -->
+    <dialog id="popup" aria-labelledby="guitar-title" onclose="popupClosed()">
+        <button class="close-button" type="button" onclick="closePopup()" aria-label="Close popup">×</button>
+
+        <section id="guitar" class="popup-section" hidden>
+            <h2 id="guitar-title">CL-30</h2>
+            <div id="guitar-picture" class="Cl-30-guitar">
+                <img id="guitar-image" src="assets/1.png" alt="CL-30-acoustic-guitar">
+            </div>
+            <p id="guitar-description"></p>
+            <p>Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button type="button" class="button dark-button" onclick="openCommission(selectedGuitar)">Commission this instrument</button>
+        </section>
+    </dialog>
+
+    <!-- Load the script after the HTML so it can find the elements above. -->
+    <script src="script.js"></script>
+</body>
+</html>
